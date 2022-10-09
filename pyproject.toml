@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "fastapi-sml"
+version = "0.1.0"
+description = ""
+authors = ["roberto.starnini@gmail.com"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+alembic = "^1.7.6"
+asyncpg = "^0.25.0"
+fastapi = {extras = ["all"], version = "^0.81.0"}
+sqlmodel = "^0.0.8"
+python-jose = "^3.3.0"
+cryptography = "^36.0.1"
+passlib = "^1.7.4"
+SQLAlchemy-Utils = "^0.38.2"
+black = "^22.1.0"
+SQLAlchemy = "^1.4.40"
+fastapi-pagination = {extras = ["sqlalchemy"], version = "^0.9.3"}
+fastapi-cache2 = {extras = ["redis"], version = "^0.1.8"}
+fastapi-async-sqlalchemy = "^0.3.12"
+aioredis = "^2.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
