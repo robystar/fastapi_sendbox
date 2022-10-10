@@ -3,16 +3,30 @@ from typing import Optional, List
 
 class ImpresaBase(SQLModel):
     idimpresa: int
-    ragionesociale: str
-    sedevia: str = Field(default=None, title="Sede")
-    sedenrc: str = Field( default=None, title="Civico")
-    
-    
+    ragionesociale: Optional[str]
+    tiposocieta: Optional[str]
+    sedevia: Optional[str]
+    sedenrc: Optional[str]
+    sedecomune: Optional[str]
+    sedeprovincia: Optional[str]
+    sedesiglaprov: Optional[str]
+    sedeloc: Optional[str]
+    sedecap: Optional[str]
+    cf_soc: Optional[str]
+    piva_soc: Optional[str]
+    nr_telfisso: Optional[str]
+    nr_telmobile: Optional[str]
+    nr_fax: Optional[str]
+    email01_soc: Optional[str]
+    email02_soc: Optional[str]
+    aa_costr: Optional[str]
+    dt_rec: Optional[str]
+    reg_imprese: Optional[str]
+    rea: Optional[str]
+
 class Impresa(ImpresaBase, table=True):   
-    __tablename__ = 'ae_impresa'
+    __tablename__ = 'vista_impresa'
     __table_args__ = {'schema': 'attivita'}
     idimpresa: Optional[int] = Field(default=None, primary_key=True)
-    idtiposocieta: Optional[int] = Field(default=None, foreign_key="attivita.ae_tipo_societa.idtiposocieta")
-
 
 

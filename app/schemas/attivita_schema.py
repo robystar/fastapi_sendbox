@@ -12,7 +12,10 @@ class IAttivitaRead(AttivitaBase):
 class IAttivitaCreate(AttivitaBase):
     pass
 
-class IAttivitaUpdate(BaseModel):
+class IAttivitaUpdate(AttivitaBase):
+    idattivita: int
+    impresa: Optional[ImpresaBase]
+    anagrafe: Optional[AnagrafeBase]
     pass
 
 class IAttivitaReadWithHeroes(IAttivitaRead):

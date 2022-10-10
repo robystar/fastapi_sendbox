@@ -31,12 +31,24 @@ router = APIRouter()
 async def get_anagrafe_list(
     params: Params = Depends(),
     #current_user: User = Depends(deps.get_current_user()),
+    cognome:str|None=None, nome:str|None=None, cf:str|None=None
 ):
     """
     Gets a paginated list of anagrafe
     """
-    anagrafe = await crud.anagrafe.get_multi_paginated(params=params)
-    return create_response(data=anagrafe)
+    query = select(Anagrafe)
+
+    if cognome:
+        query = query.where(Anagrafe.cognome.ilike('%'+ cognome + '%'))
+    if nome:
+        query = query.where(Anagrafe.nome.ilike('%'+ nome + '%'))
+    if cf:
+        query = query.where(Anagrafe.cf == cf)
+
+    print(query.compile(compile_kwargs={"literal_binds": True}))
+
+    results = await crud.ateco.get_multi_paginated(params=params, query=query)
+    return create_response(data=results)
 
 
 @router.get("/by_created_at", response_model=IResponseBase[Page[IAnagrafeRead]])
@@ -60,7 +72,7 @@ async def get_anagrafe_list_order_by_created_at(
 
 
 @router.get("/{anagrafe_id}", response_model=IGetResponseBase[IAnagrafeRead])
-async def get_Anagrafe_by_id(
+async def get_anagrafe_by_id(
     anagrafe_id: int,
     #current_user: User = Depends(deps.get_current_user()),
 ):

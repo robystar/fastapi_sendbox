@@ -8,7 +8,7 @@ from app.schemas.comune_schema import IComuneRead
 class IAnagrafeRead(AnagrafeBase):
     idanagrafe: str
     comune: Optional[IComuneRead]
-    residenza_comune: Optional[IComuneRead]
+    comune_res: Optional[IComuneRead]
     
 class IAnagrafeCreate(AnagrafeBase):
     pass
@@ -16,7 +16,7 @@ class IAnagrafeCreate(AnagrafeBase):
 class IAnagrafeUpdate(BaseModel):
     idanagrafe: str
     comune: Optional[IComuneRead]
-    residenza_comune: Optional[IComuneRead]
+    comune_res: Optional[IComuneRead]
 
 class IAnagrafeReadWithHeroes(IAnagrafeRead):
     pass

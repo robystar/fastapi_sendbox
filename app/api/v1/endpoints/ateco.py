@@ -35,16 +35,16 @@ async def get_ateco_list(
     codice:str|None=None, categoria:str|None=None, desc:str|None=None
 ):
     """
-    Gets a paginated list of atecos
+    Gets a paginated list of codici ATECO
     """
     query = select(Ateco)
-    if desc:
-        query = query.where(Ateco.catateco.ilike('%'+ desc + '%'))
+
     if codice:
         query = query.where(Ateco.codateco.startswith(codice))
     if categoria:
         query = query.where(Ateco.codcat == categoria)
-
+    if desc:
+        query = query.where(Ateco.catateco.ilike('%'+ desc + '%'))
 
     print(query.compile(compile_kwargs={"literal_binds": True}))
     logger.info("asdasdasd")
