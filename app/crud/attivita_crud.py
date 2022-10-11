@@ -14,7 +14,6 @@ class CRUDAttivita(CRUDBase[Attivita, IAttivitaCreate, IAttivitaUpdate]):
     
     async def get_attivita_by_id(self, *, id: int, db_session: Optional[AsyncSession] = None) -> Attivita:
         db_session = db_session or db.session
-        import pdb;pdb.set_trace()
         attivita = await db_session.execute(select(Attivita).where(Attivita.idattivita == id))
         return attivita.scalar_one_or_none()
     

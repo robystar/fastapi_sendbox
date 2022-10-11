@@ -3,6 +3,7 @@ from app.models.attivita_model import AttivitaBase
 from app.models.impresa_model import ImpresaBase
 from app.models.anagrafe_model import AnagrafeBase
 from pydantic import BaseModel
+from enum import Enum
 
 class IAttivitaRead(AttivitaBase):
     idattivita: int
@@ -18,7 +19,9 @@ class IAttivitaUpdate(AttivitaBase):
     anagrafe: Optional[AnagrafeBase]
     pass
 
-class IAttivitaReadWithHeroes(IAttivitaRead):
-    pass
+
+class IAttivitaStato(str, Enum):
+    avviata = 'Avviata'
+    cessata = 'Cessata'
 
     

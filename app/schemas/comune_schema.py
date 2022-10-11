@@ -11,7 +11,5 @@ class IComuneCreate(ComuneBase):
 class IComuneUpdate(BaseModel):
     pass
 
-class IComuneReadWithHeroes(IComuneRead):
-    pass
 
     

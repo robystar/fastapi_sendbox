@@ -6,8 +6,11 @@ from datetime import datetime, date
 class AttivitaBase(SQLModel):
     insegna: Optional[str]
     tipoattivita: Optional[str]
+    idtipoattivita: Optional[int]
     subattivita: Optional[str]
+    idsubattivita: Optional[int]
     specifica: Optional[str]
+    idspecifica: Optional[int]
     causale: Optional[str]
     stato: Optional[str]
     data_inizio_attivita: Optional[date]

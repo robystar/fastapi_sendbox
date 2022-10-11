@@ -47,7 +47,7 @@ async def get_anagrafe_list(
 
     print(query.compile(compile_kwargs={"literal_binds": True}))
 
-    results = await crud.ateco.get_multi_paginated(params=params, query=query)
+    results = await crud.anagrafe.get_multi_paginated(params=params, query=query)
     return create_response(data=results)
 
 
