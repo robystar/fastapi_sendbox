@@ -25,8 +25,6 @@ class ImpresaBase(SQLModel):
     rea: Optional[str]
 
 class Impresa(ImpresaBase, table=True):   
-    __tablename__ = 'vista_impresa'
-    __table_args__ = {'schema': 'attivita'}
     idimpresa: Optional[int] = Field(default=None, primary_key=True)
 
 

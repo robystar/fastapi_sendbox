@@ -1,6 +1,6 @@
 from datetime import datetime
-from sqlmodel import Field, SQLModel, Relationship, Column, DateTime
-from app.models.links_model import LinkGroupUser
+from sqlmodel import Field, SQLModel, Relationship, Column, DateTime,Date
+from app.models.links_model import LinkGroupUser, LinkIstanzaUser, LinkPraticaUser
 from typing import List, Optional
 from pydantic import EmailStr
 from app.models.base_uuid_model import BaseUUIDModel
@@ -18,10 +18,13 @@ class UserBase(SQLModel):
     country: Optional[str]
     address: Optional[str]    
 
-class User(BaseUUIDModel, UserBase, table=True):    
+class User(BaseUUIDModel, UserBase, table=True):  
+    __table_args__ = {'schema': 'admin'}
     hashed_password: str = Field(
         nullable=False, index=True
     )
-    role_id: Optional[UUID] = Field(default=None, foreign_key="Role.id")
+    role_id: Optional[UUID] = Field(default=None, foreign_key="admin.role.id")
     role: Optional["Role"] = Relationship(back_populates="users", sa_relationship_kwargs={"lazy": "selectin"})
     groups: List["Group"] = Relationship(back_populates="users", link_model=LinkGroupUser, sa_relationship_kwargs={"lazy": "selectin"})
+    pratiche: List["Pratica"] = Relationship(back_populates="owners", link_model=LinkPraticaUser, sa_relationship_kwargs={"lazy": "selectin"})
+    istanze: List["Istanza"] = Relationship(back_populates="owners", link_model=LinkIstanzaUser, sa_relationship_kwargs={"lazy": "selectin"})

@@ -9,6 +9,4 @@ class ComuneBase(SQLModel):
     regione: str = Field(default=None)
 
 class Comune(ComuneBase, table=True):   
-    __tablename__ = 'ae_comuni'
-    __table_args__ = {'schema': 'attivita'}
     idcomune: Optional[int] = Field(default=None, primary_key=True)

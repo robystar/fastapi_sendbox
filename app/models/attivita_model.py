@@ -17,6 +17,8 @@ class AttivitaBase(SQLModel):
     data_fine_attivita: Optional[date]
     via: Optional[str]
     civico: Optional[str]
+    lat: Optional[float]
+    lng: Optional[float]
     mq_totali: Optional[float]
     attocessazione: Optional[str]
     noteattiv: Optional[str]

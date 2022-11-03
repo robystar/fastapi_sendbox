@@ -3,6 +3,7 @@ import asyncio
 from logging.config import fileConfig
 from sqlmodel import SQLModel, create_engine
 from sqlmodel.ext.asyncio.session import AsyncEngine
+from geoalchemy2.alembic_helpers import render_item, include_object
 from alembic import context
 import sys
 import pathlib
@@ -43,7 +44,12 @@ def run_migrations_offline():
     """
     url = settings.ASYNC_DATABASE_URI
     context.configure(
-        url=url, target_metadata=target_metadata, literal_binds=True, compare_type=True, dialect_opts={"paramstyle": "named"}
+        url=url, 
+        target_metadata=target_metadata, 
+        literal_binds=True, 
+        compare_type=True, 
+        include_schemas=True,
+        dialect_opts={"paramstyle": "named"}
     )
 
     with context.begin_transaction():
@@ -51,7 +57,13 @@ def run_migrations_offline():
 
 
 def do_run_migrations(connection):
-    context.configure(connection=connection, target_metadata=target_metadata)
+    context.configure(
+        connection=connection,
+        target_metadata=target_metadata,
+        include_schemas=True,
+        compare_type=True,
+        render_item=render_item,
+        include_object=include_object)
 
     with context.begin_transaction():
         context.run_migrations()

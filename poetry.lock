@@ -319,17 +319,29 @@ SQLAlchemy = {version = ">=1.3.20", optional = true, markers = "extra == \"gino\
 
 [package.extras]
 gino = ["gino[starlette] (>=1.0.1)", "SQLAlchemy (>=1.3.20)"]
-all = ["gino[starlette] (>=1.0.1)", "SQLAlchemy (>=1.3.20)", "databases[sqlite,mysql,postgresql] (>=0.4.0)", "orm (>=0.1.5)", "tortoise-orm[aiomysql,aiosqlite,asyncpg] (>=0.16.18,<0.20.0)", "asyncpg (>=0.24.0)", "ormar (>=0.10.5)", "Django (<3.3.0)", "piccolo (>=0.29,<0.35)", "motor (>=2.5.1,<3.0.0)", "mongoengine (>=0.23.1,<0.25.0)"]
+all = ["gino[starlette] (>=1.0.1)", "SQLAlchemy (>=1.3.20)", "databases[mysql,sqlite,postgresql] (>=0.4.0)", "orm (>=0.1.5)", "tortoise-orm[aiosqlite,asyncpg,aiomysql] (>=0.16.18,<0.20.0)", "asyncpg (>=0.24.0)", "ormar (>=0.10.5)", "Django (<3.3.0)", "piccolo (>=0.29,<0.35)", "motor (>=2.5.1,<3.0.0)", "mongoengine (>=0.23.1,<0.25.0)"]
 sqlalchemy = ["SQLAlchemy (>=1.3.20)"]
 asyncpg = ["SQLAlchemy (>=1.3.20)", "asyncpg (>=0.24.0)"]
-databases = ["databases[sqlite,mysql,postgresql] (>=0.4.0)"]
-orm = ["databases[sqlite,mysql,postgresql] (>=0.4.0)", "orm (>=0.1.5)", "typesystem (>=0.2.0,<0.3.0)"]
-django = ["databases[sqlite,mysql,postgresql] (>=0.4.0)", "Django (<3.3.0)"]
-tortoise = ["tortoise-orm[aiomysql,aiosqlite,asyncpg] (>=0.16.18,<0.20.0)"]
+databases = ["databases[mysql,sqlite,postgresql] (>=0.4.0)"]
+orm = ["databases[mysql,sqlite,postgresql] (>=0.4.0)", "orm (>=0.1.5)", "typesystem (>=0.2.0,<0.3.0)"]
+django = ["databases[mysql,sqlite,postgresql] (>=0.4.0)", "Django (<3.3.0)"]
+tortoise = ["tortoise-orm[aiosqlite,asyncpg,aiomysql] (>=0.16.18,<0.20.0)"]
 ormar = ["ormar (>=0.10.5)"]
 piccolo = ["piccolo (>=0.29,<0.35)"]
 motor = ["motor (>=2.5.1,<3.0.0)"]
 mongoengine = ["mongoengine (>=0.23.1,<0.25.0)"]
+
+[[package]]
+name = "geoalchemy2"
+version = "0.12.5"
+description = "Using SQLAlchemy with Spatial Databases"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+packaging = "*"
+SQLAlchemy = ">=1.4"
 
 [[package]]
 name = "greenlet"
@@ -443,7 +455,7 @@ python-versions = ">=3.7"
 name = "packaging"
 version = "21.3"
 description = "Core utilities for Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -550,7 +562,7 @@ email = ["email-validator (>=1.0.3)"]
 name = "pyparsing"
 version = "3.0.9"
 description = "pyparsing module - Classes and methods to define and execute parsing grammars"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6.8"
 
@@ -913,7 +925,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "b080f3439c9b6649e8b785d0d480c503e34621ca4780303740bbe795f7908a7c"
+content-hash = "28433b732f4f1a554038e0efcfbb32b08f094d98bd9e16b613ccd09215c3e7ae"
 
 [metadata.files]
 aioredis = [
@@ -990,6 +1002,7 @@ fastapi = []
 fastapi-async-sqlalchemy = []
 fastapi-cache2 = []
 fastapi-pagination = []
+geoalchemy2 = []
 greenlet = []
 h11 = []
 httptools = []

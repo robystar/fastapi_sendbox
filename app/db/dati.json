@@ -1,0 +1,277 @@
+
+
+
+
+
+{
+    "google_map_key": "  \n... \n<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?v=3.47&key=AIzaSyC_7g88CD2z5odzcSq_fLndb3-0g7slLTU&libraries=drawing\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/proj4js.js\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/proj4js-defs.js\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/iolGoogleMap.js\"></script>\n",
+    "regimi_vincolistici_annotazioni": "",
+    "civico_search": "",
+    "ubicazioni_mappa": "",
+    "indirizzo_search": "Strada della Costa",
+    "elenco_civici": [
+        {
+            "civico_geometry": "",
+            "civico_via": "225",
+            "civico_interno": "",
+            "civico_civico": "",
+            "civico_note": ""
+        }
+    ],
+    "nct_foglio_search": [
+        "2"
+    ],
+    "iol_comune": "A278",
+    "coord_lat": 44.01443,
+    "ubicazione_note": "",
+    "interno_search": "",
+    "nceu_foglio_search": "",
+    "regimi_vincolistici": "Errore: HTTPConnectionPool(host='127.0.0.1', port=80): Max retries exceeded with url: /cduspezia/cdu.php (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f00e4fea910>: Failed to establish a new connection: [Errno 111] Connection refused',))",
+    "nceu_mappale_search": "",
+    "coord_lng": 8.10356,
+    "nceu_subalterno_search": "",
+    "nct_mappale_search": [
+        "2"
+    ],
+    "elenco_nceu": [],
+    "coord_x": 428146.04,
+    "livelli": [
+        "puc"
+    ],
+    "via_search": [
+        "225"
+    ],
+    "elenco_nct": [
+        {
+            "nct_particella": "2",
+            "nct_sezione": "UN",
+            "nct_note": "",
+            "nct_foglio": "2",
+            "nct_geometry": "POLYGON((8.10321 44.0146,8.10335 44.01495,8.10352 44.01491,8.10367 44.01484,8.1038 44.01477,8.10385 44.01473,8.10399 44.01468,8.10377 44.01431,8.10339 44.01391,8.10335 44.01402,8.10334 44.01415,8.10328 44.01423,8.10322 44.01427,8.10313 44.01437,8.10321 44.0146))"
+        }
+    ],
+    "mappa_gisclient": "",
+    "ubicazione_localita": "",
+    "coord_y": 4873866.14
+}
+
+{
+    "giuridica_qualita": "",
+    "delegato_civico": "",
+    "giuridica_pec": "",
+    "firma_digitale_opt": "",
+    "fisica_domicilio_comune": "",
+    "fisica_domicilio_cap": "",
+    "fisica_cittadinanza": "ITALIANA",
+    "delegato_loc": "",
+    "delegato_comune": "",
+    "delegato_telefono": "",
+    "delegato_provincia_nato": "",
+    "giuridica_civico": "",
+    "giuridica_comune": "",
+    "fisica_pec": "carbone.marco@pec.it",
+    "fisica_search": "REVELLO FRANCESCO",
+    "condominio_cf": "",
+    "fisica_fax": "",
+    "delegato_cod_cat_nato": "",
+    "fisica_domicilio_civico": "",
+    "giuridica_cf": "",
+    "giuridica_cciaa_numero": "",
+    "giuridica_indirizzo": "",
+    "giuridica_telefono": "",
+    "giuridica_search": "",
+    "richiedenti_search": "REVELLO FRANCESCO, DE SIMONE VIRGINIA",
+    "fisica_domicilio_indirizzo": "",
+    "delegato_app": "",
+    "titolo_esistente_cf": "RVLFNC37H19L730P DSMVGN79C66D208P",
+    "delegato_cap": "",
+    "delegato_sesso": "",
+    "volture_dg": [],
+    "delegato_cellulare": "",
+    "fisica_loc": "",
+    "fisica_provincia": "SV",
+    "delegato_comune_nato": "",
+    "fisica_comune": "Andora",
+    "delegato_cf": "",
+    "fisica_cellulare": "",
+    "delegato_nome": "",
+    "giuridica_cap": "",
+    "fisica_civico": "46",
+    "giuridica_email": "",
+    "fisica_email": "marco.carbone.shop@gmail.com",
+    "delegato_fax": "",
+    "fisica_comune_nato": "Vendone",
+    "fisica_sesso": "F",
+    "giuridica_fisica_piva": "",
+    "fisica_telefono": "",
+    "fisica_cap": "17051",
+    "giuridica_cellulare": "",
+    "delegato_opt": "0",
+    "delegato_cognome": "",
+    "giuridica_fax": "",
+    "delegato_data_nato": "",
+    "delegato_indirizzo": "",
+    "giuridica_cciaa": "",
+    "giuridica_provincia": "",
+    "fisica_titolo": "Proprietario",
+    "delegato_email": "",
+    "fisica_loc_nato": "",
+    "delegato_titolo": "Soggetto delegato",
+    "delegato_provincia": "",
+    "giuridica_qualita_altro": "",
+    "condominio_denominazione": "",
+    "fisica_indirizzo": "VIA S.LAZZARO",
+    "fisica_cognome": "REVELLO",
+    "consenso_pec": "0",
+    "fisica_cf": "RVLFNC37H19L730P",
+    "fisica_domicilio_provincia": "",
+    "delegato_pec": "",
+    "fisica_app": "Sig.",
+    "fisica_provincia_nato": "SV",
+    "fisica_nome": "FRANCESCO",
+    "delegato_search": "",
+    "giuridica_opt": "no",
+    "giuridica_localita": "",
+    "giuridica_piva": "",
+    "domicilio_opt": "0",
+    "fisica_cod_cat_nato": "L730",
+    "anagrafica_soggetti": [
+        {
+            "giuridica_pec": "",
+            "giuridica_provincia": "",
+            "fisica_cittadinanza": "Italiana",
+            "fisica_loc": "",
+            "giuridica_civico": "",
+            "giuridica_comune": "",
+            "fisica_pec": "amministrazione@pec.gisweb.it",
+            "fisica_fax": "",
+            "giuridica_cellulare": "",
+            "giuridica_cf": "",
+            "giuridica_cciaa_numero": "",
+            "giuridica_telefono": "",
+            "giuridica_denominazione": "",
+            "fisica_email": "assistenza@gisweb.it",
+            "giuridica_indirizzo": "",
+            "fisica_comune": "Andora",
+            "fisica_cellulare": "",
+            "giuridica_cap": "",
+            "fisica_civico": "6",
+            "giuridica_email": "",
+            "giuridica_qualita": "",
+            "fisica_comune_nato": "Cuorgn\u00e8",
+            "fisica_sesso": "F",
+            "giuridica_fisica_piva": "",
+            "fisica_telefono": "",
+            "fisica_cap": "17051",
+            "fisica_provincia": "SV",
+            "giuridica_fax": "",
+            "giuridica_cciaa": "",
+            "fisica_titolo": "Proprietario",
+            "fisica_loc_nato": "",
+            "fisica_indirizzo": "via Aurora",
+            "fisica_cognome": "DE SIMONE",
+            "fisica_cf": "DSMVGN79C66D208P",
+            "fisica_app": "Sig.ra",
+            "fisica_provincia_nato": "TO",
+            "fisica_nome": "VIRGINIA",
+            "giuridica_opt": "no",
+            "giuridica_localita": "",
+            "giuridica_piva": "",
+            "fisica_cod_cat_nato": "D208",
+            "fisica_data_nato": "26/03/1979"
+        }
+    ],
+    "delegato_cittadinanza": "",
+    "fisica_data_nato": "19/06/1937",
+    "giuridica_denominazione": "",
+    "delegato_loc_nato": ""
+}
+
+
+{
+    "tecnici_search": "RE   ",
+    "progettista_fax": "",
+    "progettista_cod_cat_nato": "",
+    "progettista_albo_prov": "IM",
+    "progettista_cap": "18013",
+    "progettista_albo": "geometri",
+    "progettista_data_incarico": "02/09/2021",
+    "progettista_app": "Geom.",
+    "progettista_data_nato": "24/05/1992",
+    "progettista_cap_residenza": "18013",
+    "progettista_comune": "Diano Marina",
+    "progettista_provincia_residenza": "IM",
+    "progettista_cognome": "RE",
+    "progettista_comune_nato": "Imperia",
+    "progettista_email": "gw.davide@gmail.com",
+    "progettista_indirizzo_residenza": "Via Passaggia",
+    "progettista_sesso": "F",
+    "progettista_pec": "davide.caviglia@pec.it",
+    "progettista_indirizzo": "Via Sori",
+    "progettista_piva": "01591170087",
+    "progettista_civico": "46",
+    "progettista_comune_residenza": "Diano Castello",
+    "progettista_telefono": "",
+    "progettista_cf": "REXVNT92E64E290H",
+    "progettista_nome": "Valentina",
+    "progettista_albo_numero": "1729",
+    "progettista_cellulare": "333333333",
+    "progettista_denominazione": "",
+    "progettista_provincia_nato": "IM",
+    "progettista_provincia": "IM",
+    "progettista_search": "RE Valentina",
+    "progettista_civico_residenza": "10"
+}
+
+
+{
+    "mappa_gisclient": "",
+    "regimi_vincolistici_annotazioni": "",
+    "nct_foglio_search": [
+        "2"
+    ],
+    "ubicazione_note": "",
+    "interno_search": "",
+    "coord_x": 428146.04,
+    "coord_y": 4873866.14,
+    "nct_mappale_search": [
+        "2"
+    ],
+    "civico_search": "",
+    "ubicazione_localita": "",
+    "elenco_nceu": [],
+    "elenco_nct": [
+        {
+            "nct_foglio": "2",
+            "nct_sezione": "UN",
+            "nct_note": "",
+            "nct_particella": "2",
+            "nct_geometry": "POLYGON((8.10321 44.0146,8.10335 44.01495,8.10352 44.01491,8.10367 44.01484,8.1038 44.01477,8.10385 44.01473,8.10399 44.01468,8.10377 44.01431,8.10339 44.01391,8.10335 44.01402,8.10334 44.01415,8.10328 44.01423,8.10322 44.01427,8.10313 44.01437,8.10321 44.0146))"
+        }
+    ],
+    "coord_lat": 44.01443,
+    "nceu_subalterno_search": "",
+    "indirizzo_search": "Strada della Costa",
+    "via_search": [
+        "225"
+    ],
+    "nceu_foglio_search": "",
+    "coord_lng": 8.10356,
+    "regimi_vincolistici": "Errore: HTTPConnectionPool(host='127.0.0.1', port=80): Max retries exceeded with url: /cduspezia/cdu.php (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f1fda901ed0>: Failed to establish a new connection: [Errno 111] Connection refused',))",
+    "livelli": [
+        "puc"
+    ],
+    "ubicazioni_mappa": "",
+    "elenco_civici": [
+        {
+            "civico_note": "",
+            "civico_interno": "",
+            "civico_civico": "",
+            "civico_geometry": "",
+            "civico_via": "225"
+        }
+    ],
+    "iol_comune": "A278",
+    "google_map_key": "  \n... \n<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?v=3.47&key=AIzaSyC_7g88CD2z5odzcSq_fLndb3-0g7slLTU&libraries=drawing\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/proj4js.js\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/proj4js-defs.js\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/iolGoogleMap.js\"></script>\n",
+    "nceu_mappale_search": ""
+}

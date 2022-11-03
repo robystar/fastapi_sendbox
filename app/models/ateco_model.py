@@ -10,6 +10,4 @@ class AtecoBase(SQLModel):
     sottocat: str = Field(default=None)
 
 class Ateco(AtecoBase, table=True):   
-    __tablename__ = 'ae_ateco'
-    __table_args__ = {'schema': 'attivita'}
     idateco: Optional[int] = Field(default=None, primary_key=True)
