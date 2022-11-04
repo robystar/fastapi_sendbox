@@ -1,5 +1,5 @@
 from typing import List, Optional
-from app.models.soggetto_model import DomicilioBase, RichiedenteBase, GiuridicaBase, DelegatoBase
+from app.models.soggetto_model import DomicilioBase, RichiedenteBase, GiuridicaBase, DelegatoBase, TecnicoBase
 from enum import Enum
 
 class ISesso(str, Enum):
@@ -44,4 +44,10 @@ class IDelegatoRead(DelegatoBase):
 class IDelegatoUpdate(DelegatoBase):
     pass
 
+class ITecnicoCreate(TecnicoBase):
+    pass
+class ITecnicoRead(TecnicoBase):
+    pass
+class ITecnicoUpdate(TecnicoBase):
+    pass
     

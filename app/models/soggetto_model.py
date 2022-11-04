@@ -1,7 +1,7 @@
 import enum
 from uuid import UUID
 from pydantic import BaseModel
-from sqlmodel import SQLModel, Field, Relationship, UniqueConstraint, Date
+from sqlmodel import SQLModel, Field, Relationship, UniqueConstraint, Date, ARRAY, String
 from sqlalchemy import Column, String
 from typing import Optional, List
 from datetime import datetime, date
@@ -82,7 +82,7 @@ class TecnicoBase(FisicaBase, Indirizzo, Recapito, Fiscale):
     data_incarico: Optional[date]
     qualita: Optional[str]
     qualita_altro: Optional[str]
-    ruolo: Optional[str]
+    ruolo:  List[str] = Field(sa_column=Column(ARRAY(String)))
     ruolo_altro: Optional[str]
     
     albo: Optional[str]

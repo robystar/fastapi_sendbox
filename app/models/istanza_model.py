@@ -1,8 +1,10 @@
-from sqlmodel import SQLModel, Field, Relationship, Column, DateTime, UniqueConstraint
+from sqlmodel import SQLModel, Field, Relationship, Column, DateTime, UniqueConstraint, JSON, ARRAY, String
 from typing import Optional, List
 from app.models.base_uuid_model import BaseIDModel
 from uuid import UUID
 from datetime import datetime
+
+
 
 from app.models.links_model import LinkIstanzaUser
 from app.models.links_model import LinkIstanzaPratica
@@ -19,7 +21,7 @@ class IstanzaBase(SQLModel):
     consenso_pec: Optional[bool]
     firma_digitale_opt: Optional[int]
     note: Optional[str]
-    
+    ownersss: List[str] = Field(sa_column=Column(ARRAY(String)))
 
 class Istanza(BaseIDModel, IstanzaBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}
@@ -28,6 +30,6 @@ class Istanza(BaseIDModel, IstanzaBase, table=True):
        
     owners: List["User"] = Relationship(back_populates="istanze", link_model=LinkIstanzaUser, sa_relationship_kwargs={"lazy": "selectin"})    
     pratiche: List["Pratica"] = Relationship(back_populates="istanze", link_model=LinkIstanzaPratica, sa_relationship_kwargs={"lazy": "selectin"})    
-    richiedenti: List["Soggetto"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"})    
+    richiedenti: List["Richiedente"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"})    
     delegato: Optional["Delegato"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin", "uselist":False})    
-    tecnici: List["Soggetto"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"})    
+    tecnici: List["Tecnico"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"})    
