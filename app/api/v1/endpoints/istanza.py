@@ -8,6 +8,7 @@ from app.schemas.common_schema import (
 from fastapi_pagination import Page, Params
 from app.schemas.istanza_schema import (
     IIstanzaCreate,
+    IIstanzaCreateAll,
     IIstanzaRead,
     IIstanzaUpdate,
     IIstanzaReadWithRichiedenti
@@ -18,17 +19,18 @@ from app import crud
 from uuid import UUID
 from app.schemas.richiedente_schema import IRichiedenteCreate, IRichiedenteReadAll
 from app.schemas.role_schema import IRoleEnum
+from app.models.istanza_model import IstanzaBase, Istanza
 
 router = APIRouter()
 
 
 @router.get("", response_model=IGetResponseBase[Page[IIstanzaReadWithRichiedenti]])
-async def get_istanzas(
+async def get_istanze(
     params: Params = Depends(),
     current_user: User = Depends(deps.get_current_user()),
 ):
     """
-    Gets a paginated list of istanzas
+    Gets a paginated list of istanze
     """
     istanzas = await crud.istanza.get_multi_paginated(params=params)
     return create_response(data=istanzas)
@@ -57,6 +59,20 @@ async def create_istanza(
     Creates a new istanza
     """
     new_istanza = await crud.istanza.create(obj_in=istanza, created_by_id=current_user.id)
+    return create_response(data=new_istanza)
+
+@router.post("/{istanza_id}", response_model=IPostResponseBase[IIstanzaCreateAll])
+async def create_istanza_with_id(
+    istanza_id: int,
+    istanza: IIstanzaCreateAll,
+    current_user: User = Depends(
+        deps.get_current_user(required_roles=[IRoleEnum.admin, IRoleEnum.manager])
+    ),
+):
+    """
+    Creates a new istanza with id
+    """
+    new_istanza = await crud.istanza.create_istanza_with_id(obj_in=istanza, created_by_id=current_user.id, istanza_id=istanza_id)
     return create_response(data=new_istanza)
 
 

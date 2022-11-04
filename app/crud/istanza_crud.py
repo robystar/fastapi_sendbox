@@ -1,8 +1,9 @@
-from typing import List, Optional
+from datetime import datetime
+from typing import List, Optional, Union
 from app.models.istanza_model import Istanza
 from app.models.richiedente_model import Delegato, Richiedente
 from app.models.user_model import User
-from app.schemas.istanza_schema import IIstanzaCreate, IIstanzaUpdate
+from app.schemas.istanza_schema import IIstanzaCreate, IIstanzaUpdate, IIstanzaCreateAll
 from app.crud.base_crud import CRUDBase
 from fastapi_async_sqlalchemy import db
 from sqlmodel import select
@@ -16,6 +17,33 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
         db_session = db_session or db.session
         istanza = await db_session.execute(select(Istanza).where(Istanza.name == name))
         return istanza.scalar_one_or_none()
+ 
+    async def create_istanza_with_id(
+        self,
+        *,
+        obj_in: Union[IIstanzaCreateAll, Istanza],
+        istanza_id: int,
+        created_by_id: Optional[Union[UUID, str]] = None,
+        db_session: Optional[AsyncSession] = None,
+    ) -> IIstanzaCreateAll:
+        db_session = db_session or db.session
+        import pdb;pdb.set_trace()
+        db_istanza = Istanza.from_orm(obj_in)  # type: ignore
+        
+        if created_by_id:
+            db_istanza.created_by_id = created_by_id
+            db_istanza.created_at = datetime.utcnow()
+            db_istanza.updated_at = datetime.utcnow()
+        
+        db_istanza.id = istanza_id
+        db_istanza.richiedenti = [Richiedente.from_orm(richiedente) for richiedente in obj_in.richiedenti]
+        db_istanza.delegato = Delegato.from_orm(obj_in.delegato)
+        db_session.add(db_istanza)
+        await db_session.commit()
+        await db_session.refresh(db_istanza)
+        return db_istanza
+    
+    
 
     async def add_user_to_istanza(self, *, user: User, istanza_id: int) -> Istanza:
         istanza = await super().get(id=istanza_id)

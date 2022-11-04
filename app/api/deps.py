@@ -26,7 +26,8 @@ async def get_general_meta() -> IMetaGeneral:
     return IMetaGeneral(roles=current_roles)
 
 def get_current_user(required_roles: List[str] = None) -> User:
-    async def current_user(token: str = Depends(reusable_oauth2)) -> User:        
+    
+    async def current_user(token: str = Depends(reusable_oauth2)) -> User:  
         try:
             payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[security.ALGORITHM])
         except (jwt.JWTError, ValidationError):

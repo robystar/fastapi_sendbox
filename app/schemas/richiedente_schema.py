@@ -23,6 +23,8 @@ class IDomicilioUpdate(DomicilioBase):
 
 class IRichiedenteCreate(RichiedenteBase): 
     istanza_id: int
+
+class IRichiedenteCreateAll(RichiedenteBase): 
     domicilio: Optional[IDomicilioCreate]
     giuridica: Optional[IGiuridicaCreate]
 
