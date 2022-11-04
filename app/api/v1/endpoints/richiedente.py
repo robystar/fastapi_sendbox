@@ -6,7 +6,7 @@ from app.schemas.common_schema import (
     create_response,
 )
 from fastapi_pagination import Page, Params
-from app.schemas.richiedente_schema import (
+from app.schemas.soggetto_schema import (
     IRichiedenteCreate,
     IRichiedenteRead,
     IRichiedenteReadAll,

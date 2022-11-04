@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List, Optional, Union
 from app.models.istanza_model import Istanza
-from app.models.richiedente_model import Delegato, Richiedente
+from app.models.soggetto_model import Delegato, Richiedente
 from app.models.user_model import User
 from app.schemas.istanza_schema import IIstanzaCreate, IIstanzaUpdate, IIstanzaCreateAll
 from app.crud.base_crud import CRUDBase
@@ -10,7 +10,7 @@ from sqlmodel import select
 from uuid import UUID
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from app.schemas.richiedente_schema import IRichiedenteReadAll
+from app.schemas.soggetto_schema import IRichiedenteReadAll
 
 class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
     async def get_istanza_by_name(self, *, name: str, db_session: Optional[AsyncSession] = None) -> Istanza:

@@ -1,7 +1,7 @@
 from typing import Optional, Union
-from app.schemas.richiedente_schema import IRichiedenteCreate, IRichiedenteUpdate, IRichiedenteReadAll
+from app.schemas.soggetto_schema import IRichiedenteCreate, IRichiedenteUpdate, IRichiedenteReadAll
 from app.crud.base_crud import CRUDBase
-from app.models.richiedente_model import Richiedente, Domicilio, Giuridica
+from app.models.soggetto_model import Richiedente, Domicilio, Giuridica
 from fastapi_async_sqlalchemy import db
 from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession

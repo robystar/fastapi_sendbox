@@ -1,5 +1,5 @@
 from typing import List, Optional
-from app.models.richiedente_model import DomicilioBase, RichiedenteBase, GiuridicaBase, DelegatoBase
+from app.models.soggetto_model import DomicilioBase, RichiedenteBase, GiuridicaBase, DelegatoBase
 from enum import Enum
 
 class ISesso(str, Enum):

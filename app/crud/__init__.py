@@ -5,7 +5,7 @@ from .protocollo_crud import protocollo
 from .pratica_crud import pratica
 from .recipe_crud import recipe, ingredient
 from .istanza_crud import istanza
-from .richiedente_crud import richiedente
+from .soggetto_crud import richiedente
 
 
 '''

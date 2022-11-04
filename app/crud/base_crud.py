@@ -32,7 +32,6 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         self, *, id: Union[UUID, str, int], db_session: Optional[AsyncSession] = None
     ) -> Optional[ModelType]:
         db_session = db_session or db.session
-        import pdb;pdb.set_trace()
         query = select(self.model).where(self.model.id == id)
         print (str(query.compile(dialect=postgresql.dialect())))
         response = await db_session.execute(query)

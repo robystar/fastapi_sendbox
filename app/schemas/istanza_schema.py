@@ -2,7 +2,7 @@ from typing import List, Optional
 from app.models.istanza_model import IstanzaBase
 from uuid import UUID
 
-from app.schemas.richiedente_schema import IRichiedenteRead, IRichiedenteReadAll, IRichiedenteCreateAll, IDelegatoCreate
+from app.schemas.soggetto_schema import IRichiedenteRead, IRichiedenteReadAll, IRichiedenteCreateAll, IDelegatoCreate
 
 class IIstanzaCreate(IstanzaBase):
     id: Optional[int]

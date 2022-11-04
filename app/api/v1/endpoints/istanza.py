@@ -17,7 +17,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from app.api import deps
 from app import crud
 from uuid import UUID
-from app.schemas.richiedente_schema import IRichiedenteCreate, IRichiedenteReadAll
+from app.schemas.soggetto_schema import IRichiedenteCreate, IRichiedenteReadAll
 from app.schemas.role_schema import IRoleEnum
 from app.models.istanza_model import IstanzaBase, Istanza
 
@@ -36,13 +36,24 @@ async def get_istanze(
     return create_response(data=istanzas)
 
 
-@router.get("/{istanza_id}", response_model=IGetResponseBase[IIstanzaReadWithRichiedenti])
+@router.get("/{istanza_id}", response_model=IGetResponseBase[IIstanzaRead])
 async def get_istanza_by_id(
     istanza_id: int,
     current_user: User = Depends(deps.get_current_user()),
 ):
     """
     Gets a istanza by its id
+    """
+    istanza = await crud.istanza.get(id=istanza_id)
+    return create_response(data=istanza)
+
+@router.get("/completa/{istanza_id}", response_model=IGetResponseBase[IIstanzaReadWithRichiedenti])
+async def get_istanza_by_id(
+    istanza_id: int,
+    current_user: User = Depends(deps.get_current_user()),
+):
+    """
+    Gets a istanza con richiedenti by its id
     """
     istanza = await crud.istanza.get(id=istanza_id)
     return create_response(data=istanza)
