@@ -1,10 +1,11 @@
-from typing import List, Optional
+from typing import List, Optional,Union
 from app.models.istanza_model import IstanzaBase
 from uuid import UUID
 from app.models.ubicazione_model import Civico, Mappale_nceu, Mappale_nct
 
 from app.schemas.soggetto_schema import IDelegatoUpdate, IRichiedenteRead, IRichiedenteReadAll, IRichiedenteCreateAll, IDelegatoCreate, IRichiedenteUpdateAll, ITecnicoRead
 from app.schemas.ubicazione_schema import ICivicoRead, IMappaleRead, IPosizioneCreate, IPosizioneRead
+from datetime import datetime
 
 class IIstanzaCreate(IstanzaBase):
     id: Optional[int]

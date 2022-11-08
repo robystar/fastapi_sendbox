@@ -55,12 +55,22 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
     ) -> IIstanzaUpdateAll:
         db_session = db_session or db.session
         import pdb;pdb.set_trace()
-        db_istanza = Istanza.from_orm(obj_in)  # type: ignore
+        new_istanza = Istanza.from_orm(obj_in)  # type: ignore
+        
         db_istanza = await super().get(id=istanza_id)
         
 
-        
-        db_istanza.richiedenti = [Richiedente.from_orm(richiedente) for richiedente in obj_in.richiedenti]
+        for richiedente in db_istanza.richiedenti:
+            await db_session.delete(richiedente)
+        await db_session.delete(db_istanza.delegato)
+
+        richiedenti_db=[]
+        for richiedente in obj_in.richiedenti:
+            richiedente.istanza_id = istanza_id
+            richiedenti_db.append(Richiedente.from_orm(richiedente))     
+        db_istanza.richiedenti=richiedenti_db   
+
+
         db_istanza.delegato = Delegato.from_orm(obj_in.delegato)
         db_session.add(db_istanza)
         await db_session.commit()
@@ -119,13 +129,13 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
 
         istanza = await super().get(id=istanza_id, db_session=db_session)
         
-        for richiedente in istanza.tecnici:
-            await db_session.delete(richiedente)
+        for tecnico in istanza.tecnici:
+            await db_session.delete(tecnico)
         
         tecnici_db=[]
-        for richiedente in tecnici:
-            richiedente.istanza_id = istanza_id
-            tecnici_db.append(Richiedente.from_orm(richiedente))     
+        for tecnico in tecnici:
+            tecnico.istanza_id = istanza_id
+            tecnici_db.append(Richiedente.from_orm(tecnico))     
         istanza.tecnici=tecnici_db   
 
         db_session.add(istanza)

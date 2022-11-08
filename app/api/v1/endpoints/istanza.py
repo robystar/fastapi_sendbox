@@ -1,4 +1,5 @@
 from typing import List
+from app.models.soggetto_model import Delegato
 from app.models.ubicazione_model import UbicazioneBase
 from app.models.user_model import User
 from app.schemas.common_schema import (
@@ -112,17 +113,13 @@ async def update_istanza_with_id(
     Aggiorna istanza completa doc id con richiedenti (dump plomino doc)
     """
     
-    import pdb;pdb.set_trace()
     istanza_current = await crud.istanza.get(id=istanza_id)
     if not istanza_current:
         raise HTTPException(status_code=404, detail="Istanza not found")
-
-    istanza_updated = await crud.istanza.update(obj_current=istanza_current, obj_new=istanza_current)
     
+    istanza = await crud.istanza.update_istanza_with_id(obj_in=istanza, istanza_id=istanza_id)
     
-    #istanza = await crud.istanza.update_istanza_with_id(obj_in=istanza, istanza_id=istanza_id)
-    
-    return create_response(data=istanza_updated)
+    return create_response(data=istanza)
 
 
 

@@ -65,16 +65,15 @@ class Giuridica(GiuridicaBase, table=True):
 class Richiedente(RichiedenteBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
-    istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined","cascade": "delete"})
-    domicilio: Optional[Domicilio] = Relationship(sa_relationship_kwargs={"lazy":"joined","cascade": "delete","uselist":False})
-    giuridica: Optional[Giuridica] = Relationship(sa_relationship_kwargs={"lazy":"joined","cascade": "delete","uselist":False})
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
+    domicilio: Optional[Domicilio] = Relationship(sa_relationship_kwargs={"lazy":"joined","uselist":False})
+    giuridica: Optional[Giuridica] = Relationship(sa_relationship_kwargs={"lazy":"joined","uselist":False})
     
 class Delegato(DelegatoBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}
-    istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined","cascade": "delete"})
-
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
 
 class TecnicoBase(FisicaBase, Indirizzo, Recapito, Fiscale):
     
@@ -110,5 +109,5 @@ class Tecnico(TecnicoBase, table=True):
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
     istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined","cascade": "delete"})
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
 
