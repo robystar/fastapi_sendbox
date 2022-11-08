@@ -36,6 +36,16 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         print (str(query.compile(dialect=postgresql.dialect())))
         response = await db_session.execute(query)
         return response.scalar_one_or_none()
+    
+    
+    async def get_by_istanza(
+        self, *, istanza_id: Union[UUID, str, int], db_session: Optional[AsyncSession] = None
+    ) -> Optional[ModelType]:
+        db_session = db_session or db.session
+        query = select(self.model).where(self.model.istanza_id == istanza_id)
+        print (str(query.compile(dialect=postgresql.dialect())))
+        response = await db_session.execute(query)
+        return response.scalar_one_or_none()
 
     async def get_by_ids(
         self,
@@ -108,15 +118,17 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         obj_current: ModelType,
         obj_new: Union[UpdateSchemaType, Dict[str, Any], ModelType],
         db_session: Optional[AsyncSession] = None,
+        exclude_unset: bool = True
     ) -> ModelType:
         db_session = db_session or db.session
         obj_data = jsonable_encoder(obj_current)
 
+        import pdb;pdb.set_trace()
         if isinstance(obj_new, dict):
             update_data = obj_new
         else:
             update_data = obj_new.dict(
-                exclude_unset=True
+                exclude_unset=exclude_unset
             )  # This tells Pydantic to not include the values that were not sent
         for field in obj_data:
             if field in update_data:

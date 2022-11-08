@@ -8,15 +8,18 @@ from app.schemas.common_schema import (
 from fastapi_pagination import Page, Params
 from app.schemas.soggetto_schema import (
     IRichiedenteCreate,
+    IRichiedenteCreateAll,
     IRichiedenteRead,
     IRichiedenteReadAll,
     IRichiedenteUpdate
 )
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Body
 from app.api import deps
 from app import crud
 from uuid import UUID
 from app.schemas.role_schema import IRoleEnum
+
+from .examples import richiedente, richiedenti
 
 router = APIRouter()
 
@@ -45,9 +48,12 @@ async def get_richiedente_by_id(
     return create_response(data=richiedente)
 
 
-@router.post("", response_model=IPostResponseBase[IRichiedenteReadAll])
+@router.post("/{istanza_id}", response_model=IPostResponseBase[IRichiedenteReadAll])
 async def create_richiedente(
-    richiedente: IRichiedenteCreate,
+    istanza_id: int,
+    richiedente: IRichiedenteCreateAll= Body(
+        example=richiedente,
+    ),
     current_user: User = Depends(
         deps.get_current_user(required_roles=[IRoleEnum.admin, IRoleEnum.manager])
     ),
@@ -55,6 +61,8 @@ async def create_richiedente(
     """
     Creates a new richiedente
     """
+    import pdb;pdb.set_trace()
+    richiedente.istanza_id = istanza_id
     new_richiedente = await crud.richiedente.create(obj_in=richiedente)
     return create_response(data=new_richiedente)
 

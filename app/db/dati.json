@@ -275,3 +275,60 @@
     "google_map_key": "  \n... \n<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?v=3.47&key=AIzaSyC_7g88CD2z5odzcSq_fLndb3-0g7slLTU&libraries=drawing\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/proj4js.js\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/proj4js-defs.js\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/iolGoogleMap.js\"></script>\n",
     "nceu_mappale_search": ""
 }
+
+
+{
+    "nceu_mappale_search": "",
+    "via_search": [
+        "709"
+    ],
+    "ubicazione_localita": "",
+    "elenco_civici": [
+        {
+            "civico_note": "",
+            "civico_civico": "2",
+            "civico_interno": "",
+            "civico_via": "709",
+            "civico_geometry": ""
+        }
+    ],
+    "coord_y": 4874106.85,
+    "coord_x": 426161.44,
+    "indirizzo_search": "FRAZIONE SAN DAMIANO LOCALITA' CHIESA 2",
+    "coord_lat": 44.0164,
+    "iol_comune": "I947",
+    "regimi_vincolistici_annotazioni": "",
+    "livelli": [
+        "puc"
+    ],
+    "ubicazioni_mappa": "",
+    "mappa_gisclient": "",
+    "civico_search": [
+        "2"
+    ],
+    "interno_search": "",
+    "nct_mappale_search": [
+        "4"
+    ],
+    "nceu_subalterno_search": "",
+    "nceu_foglio_search": "",
+    "google_map_key": "  \n... \n<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?v=3.47&key=AIzaSyC_7g88CD2z5odzcSq_fLndb3-0g7slLTU&libraries=drawing\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/proj4js.js\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/proj4js-defs.js\"></script><script type=\"text/javascript\" src=\"++resource++iol.document/js/iolGoogleMap.js\"></script>\n",
+    "ubicazione_note": "",
+    "elenco_nct": [
+        {
+            "nct_geometry": "POLYGON((8.07936 44.01642,8.07925 44.01643,8.07911 44.01644,8.07905 44.01645,8.07898 44.01646,8.07892 44.01649,8.07885 44.01652,8.07878 44.01652,8.07866 44.01654,8.07861 44.01654,8.07857 44.01655,8.07844 44.01659,8.07838 44.0166,8.07824 44.01658,8.07821 44.01654,8.07818 44.01651,8.07826 44.01638,8.07832 44.0163,8.07835 44.01623,8.07837 44.0162,8.07848 44.01625,8.07861 44.01632,8.07869 44.01635,8.07876 44.01637,8.07882 44.01638,8.07893 44.01638,8.07895 44.01638,8.07904 44.01638,8.07916 44.01637,8.07927 44.01636,8.07932 44.01635,8.07935 44.01635,8.07936 44.01642))",
+            "nct_foglio": "5",
+            "nct_note": "",
+            "nct_sezione": "UN",
+            "nct_particella": "4"
+        }
+    ],
+    "elenco_nceu": [],
+    "regimi_vincolistici": "Pianificazione Urbanistica:\r\n\r\nSezione:UNICA Foglio:5 Mappale:4\r\nPiano Regolatore Generale - Comune di Stellanello\r\nZonizzazione: Zone agricole boscate (Eb)\r\n\r\n\r\nPianificazione Territoriale:\r\n\r\nSezione:UNICA Foglio:5 Mappale:4\r\nPiano Territoriale di Coordinamento Paesistico\r\nAssetto geomorfologico: MO-B Regime normativo di modificabilit\u00e0 di tipo B NdA art. 67 (MO_B)\r\nAssetto insediativo: Area non insediata - Mantenimento (ANI MA)\r\nAssetto vegetazionale: COL-ISS-MA (COL-ISS-MA)\r\n\r\nPiano di Bacino\r\nCarta della suscettivit\u00e0 dei versanti: Aree a suscettivita MEDIA (Pg2)\r\n\r\nVincoli legislativi\r\nDecreti Ministeriali: D.M. del 24/04/1985: IL COMPLESSO PAESISTICO DELLA ALTA VALLE DEL CENTA COSTITUITO DA ULIVETI BOSCHI CEDUI LECCI QUERCE E DA BORGHI MEDIOEVALI TIPICI IN ALASSIO ALBENGA ANDORA CASANOVA L. GARLENDA, TESTICO, STELLANELLO, VILLANOVA, CESIO E CHIUSANICO (D.M. del 24/04/1985)\r\n",
+    "coord_lng": 8.07877,
+    "nct_foglio_search": [
+        "5"
+    ]
+}
+
+[['520', '49', '1', '', '8.42773276468339 44.3403992338304']]
