@@ -7,7 +7,7 @@ from app.models.user_model import User
 from app.schemas.istanza_schema import IIstanzaCreate, IIstanzaUpdate, IIstanzaCreateAll, IIstanzaUpdateAll
 from app.crud.base_crud import CRUDBase
 from fastapi_async_sqlalchemy import db
-from sqlmodel import select
+from sqlmodel import select, delete
 from uuid import UUID
 from app import crud
 from sqlmodel.ext.asyncio.session import AsyncSession
@@ -27,7 +27,7 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
         db_session: Optional[AsyncSession] = None,
     ) -> IIstanzaUpdateAll:
         db_session = db_session or db.session
-        
+
         db_istanza = await super().get(id=istanza_id)
         
         if not db_istanza:
@@ -35,15 +35,17 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
             if created_by_id:
                 db_istanza.created_by_id = created_by_id
                 db_istanza.created_at = datetime.utcnow()
-        
-        for richiedente in db_istanza.richiedenti:
-            await db_session.delete(richiedente)
-        if db_istanza.delegato:
-            await db_session.delete(db_istanza.delegato)
-        
+        else:
+            await db_session.execute(delete(Richiedente).where(Richiedente.istanza_id == db_istanza.id))
+            await db_session.execute(delete(Delegato).where(Delegato.istanza_id == db_istanza.id))
+            await db_session.commit()
+            await db_session.refresh(db_istanza)
+            
         for richiedente_in in obj_in.richiedenti:
             richiedente_db = Richiedente.from_orm(richiedente_in)
             richiedente_db.istanza_id = istanza_id
+            db_session.add(richiedente_db)
+
             if richiedente_in.giuridica:
                 richiedente_db.giuridica = Giuridica.from_orm(richiedente_in.giuridica)
             if richiedente_in.domicilio:
@@ -64,16 +66,19 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
         
         db_session = db_session or db.session
                 
-        for richiedente in db_istanza.richiedenti:
-            await db_session.delete(richiedente)
-            
-            richiedenti_db = []
-            for richiedente_in in richiedenti:
-                richiedente_db = Richiedente.from_orm(richiedente_in)
-                if richiedente_in.giuridica:
-                    richiedente_db.giuridica = Giuridica.from_orm(richiedente_in.giuridica)
-                if richiedente_in.domicilio:
-                    richiedente_db.domicilio = Domicilio.from_orm(richiedente_in.domicilio)                
+        await db_session.execute(delete(Richiedente).where(Richiedente.istanza_id == db_istanza.id))
+        await db_session.commit()
+        await db_session.refresh(db_istanza)
+        
+        
+        richiedenti_db = []
+        for richiedente_in in richiedenti:
+            richiedente_db = Richiedente.from_orm(richiedente_in)
+            db_session.add(richiedente_db)
+            if richiedente_in.giuridica:
+                richiedente_db.giuridica = Giuridica.from_orm(richiedente_in.giuridica)
+            if richiedente_in.domicilio:
+                richiedente_db.domicilio = Domicilio.from_orm(richiedente_in.domicilio)                
             richiedenti_db.append(richiedente_db)    
             
         db_istanza.richiedenti=richiedenti_db
