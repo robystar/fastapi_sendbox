@@ -7,18 +7,16 @@ from app.models.ubicazione_model import Civico, CivicoBase, MappaleBase, Mappale
 class IPosizioneCreate(PosizioneBase):
     istanza_id: Optional[int]
     pass
-
-class IPosizioneRead(PosizioneBase):
-    pass
+ 
 
 class ICivicoCreate(CivicoBase):
-    coords: Optional[str]
+    geom_p: Optional[str] 
     
 class ICivicoRead(CivicoBase):
     pass
     
 class IMappale_nctCreate(MappaleBase):
-    geom: Optional[str]
+    geom_plg: Optional[str]
   
 class IMappale_nceuCreate(MappaleBase):
     istanza_id: Optional[int]
@@ -37,3 +35,9 @@ class IUbicazioneCreate(SQLModel):
 class IUbicazioneUpdate(IUbicazioneCreate):
     pass
 
+
+class IUbicazioneRead(PosizioneBase):
+    posizione: IPosizioneCreate
+    civici: List[ICivicoCreate]
+    nct: List[IMappale_nctCreate]
+    nceu: List[IMappale_nceuCreate]   

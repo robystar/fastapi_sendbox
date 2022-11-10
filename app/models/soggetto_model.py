@@ -1,7 +1,7 @@
 import enum
 from uuid import UUID
 from pydantic import BaseModel
-from sqlmodel import SQLModel, Field, Relationship, UniqueConstraint, Date, ARRAY, String
+from sqlmodel import SQLModel, Field, Relationship, UniqueConstraint, Date, ARRAY, String, PrimaryKeyConstraint
 from sqlalchemy import Column, String, ForeignKey, Integer
 from typing import Optional, List
 from datetime import datetime, date
@@ -56,24 +56,28 @@ class DelegatoBase(FisicaBase, Indirizzo, Recapito, Fiscale):
 
 class Domicilio(DomicilioBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}
-    richiedente_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.richiedente.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
+    id: Optional[int] = Field(default=None, primary_key=True)
+    richiedente_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.richiedente.id", ondelete="CASCADE"),  nullable=False, default=None))
+    richiedente: Optional["Richiedente"] = Relationship(back_populates="domicilio", sa_relationship_kwargs={"lazy":"selectin"})
 
 class Giuridica(GiuridicaBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}
-    richiedente_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.richiedente.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
+    id: Optional[int] = Field(default=None, primary_key=True)
+    richiedente_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.richiedente.id", ondelete="CASCADE"),  nullable=False, default=None))
+    richiedente: Optional["Richiedente"] = Relationship(back_populates="giuridica", sa_relationship_kwargs={"lazy":"selectin"})
 
-class Richiedente(RichiedenteBase, table=True):  
+class Richiedente(RichiedenteBase, table=True):
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
-    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
-    domicilio: Optional[Domicilio] = Relationship(sa_relationship_kwargs={"lazy":"joined","uselist":False})
-    giuridica: Optional[Giuridica] = Relationship(sa_relationship_kwargs={"lazy":"joined","uselist":False})
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
+    domicilio: Optional[Domicilio] = Relationship(back_populates="richiedente",sa_relationship_kwargs={"lazy":"selectin","uselist":False})
+    giuridica: Optional[Giuridica] = Relationship(back_populates="richiedente",sa_relationship_kwargs={"lazy":"selectin","uselist":False})
     
 class Delegato(DelegatoBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}
     istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
+    istanza: Optional["Istanza"] = Relationship(back_populates="delegato", sa_relationship_kwargs={"lazy":"selectin"})
 
 class TecnicoBase(FisicaBase, Indirizzo, Recapito, Fiscale):
     
@@ -108,6 +112,6 @@ class TecnicoBase(FisicaBase, Indirizzo, Recapito, Fiscale):
 class Tecnico(TecnicoBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
-    istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
 

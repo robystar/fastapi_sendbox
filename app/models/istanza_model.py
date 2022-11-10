@@ -1,5 +1,5 @@
-from sqlmodel import SQLModel, Field, Relationship, Column, DateTime, UniqueConstraint, JSON, ARRAY, String
-from typing import Optional, List
+from sqlmodel import SQLModel, Field, Relationship, Column, DateTime, UniqueConstraint, JSON, ARRAY, String, ForeignKey
+from typing import Dict, Optional, List
 from app.models.base_uuid_model import BaseIDModel
 from uuid import UUID
 from datetime import datetime
@@ -32,9 +32,37 @@ class Istanza(BaseIDModel, IstanzaBase, table=True):
     owners: List["User"] = Relationship(back_populates="istanze", link_model=LinkIstanzaUser, sa_relationship_kwargs={"lazy": "selectin"})    
     pratiche: List["Pratica"] = Relationship(back_populates="istanze", link_model=LinkIstanzaPratica, sa_relationship_kwargs={"lazy": "selectin"})    
     richiedenti: List["Richiedente"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"})    
-    delegato: Optional["Delegato"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin", "uselist":False})    
+    delegato: Optional["Delegato"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin", "uselist":False})  
     tecnici: List["Tecnico"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"})
     posizione: Optional["Posizione"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin", "uselist":False})
     civici: List["Civico"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"})   
     nct: List["Mappale_nct"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"}) 
     nceu: List["Mappale_nceu"] = Relationship(back_populates="istanza", sa_relationship_kwargs={"lazy": "selectin"}) 
+    
+    
+class JSONDataBase(SQLModel):   
+    data: Dict = Field(default={}, sa_column=Column(JSON))
+
+class Intervento(JSONDataBase, table=True):
+    __table_args__ = {'schema': 'edilizia'}
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
+    class Config:
+        arbitrary_types_allowed = True
+        
+class Asseverazioni(JSONDataBase, table=True):
+    __table_args__ = {'schema': 'edilizia'}
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
+    class Config:
+        arbitrary_types_allowed = True        
+        
+class Vincoli(JSONDataBase, table=True):
+    __table_args__ = {'schema': 'edilizia'}
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
+    class Config:
+        arbitrary_types_allowed = True
+        
+class IJSONDataCreate(JSONDataBase):
+    istanza_id: Optional[int]

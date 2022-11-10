@@ -33,7 +33,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
     ) -> Optional[ModelType]:
         db_session = db_session or db.session
         query = select(self.model).where(self.model.id == id)
-        print (str(query.compile(dialect=postgresql.dialect())))
+        #print (str(query.compile(dialect=postgresql.dialect())))
         response = await db_session.execute(query)
         return response.scalar_one_or_none()
     

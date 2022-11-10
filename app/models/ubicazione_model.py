@@ -1,7 +1,6 @@
-from sqlmodel import SQLModel, Field, Relationship, UniqueConstraint
+from sqlmodel import SQLModel, Field, Relationship, JSON, ForeignKey, Column
 from typing import Optional, List
-from sqlalchemy import Column, String, ForeignKey, Integer
-from geoalchemy2 import Geometry, Geography
+from geoalchemy2 import Geometry
 
 class Via(SQLModel, table=True):   
     __table_args__ = {'schema': 'civici'}
@@ -50,43 +49,41 @@ class UbicazioneBase(SQLModel):
 class Civico(CivicoBase, table=True):   
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
-    istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
     via_id: Optional[int] = Field(default=None, nullable=False, foreign_key="civici.via.id")
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
-    geom_p = Field(sa_column=Column(Geometry(geometry_type='POINT', srid=4326, spatial_index=True)))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
+    geom_p: Optional[str] = Field(sa_column=Column(Geometry(geometry_type='POINT', srid=4326, spatial_index=True)))
     sostituito: Optional[bool] = Field(default=False)
-
     class Config:
         arbitrary_types_allowed = True
-        
+                
 class Mappale_nct(MappaleBase, table=True):   
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
-    istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
-    geom_plg = Field(sa_column=Column(Geometry(geometry_type='POLYGON', srid=4326, spatial_index=True)))
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
+    geom_plg: Optional[str] = Field(sa_column=Column(Geometry(geometry_type='POLYGON', srid=4326, spatial_index=True)))
     sostituito: Optional[bool] = Field(default=False)
-
     class Config:
         arbitrary_types_allowed = True
-        
+          
 class Mappale_nceu(MappaleBase, table=True):   
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
     subaterno: Optional[str]
-    istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
     sostituito: Optional[bool] = Field(default=False)
  
 class Uiu(UiuBase, table=True):
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
-    istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
     sostituito: Optional[bool] = Field(default=False)
 
 class Posizione(PosizioneBase, table=True):
     __table_args__ = {'schema': 'edilizia'}
-    istanza_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
-    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"joined"})
+    istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), primary_key=True, nullable=False, default=None))
+    istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
     

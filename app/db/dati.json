@@ -331,4 +331,219 @@
     ]
 }
 
-[['520', '49', '1', '', '8.42773276468339 44.3403992338304']]
+{
+    "iol_sorteggio": "1",
+    "immobile_destinazione": "RESIDENZIALE",
+    "inizio_lavori_opt": "1",
+    "precedenti_edilizi_testo": "",
+    "tipologia_intervento_opt": [
+        "4"
+    ],
+    "immobile_volumetria_msg": "<div class=\"alert alert-info\"><h5><strong>Volumetria dell'intervento : indicare il volume dell'intervento soggetto a contributo di costruzione ,mettere 0  se non soggetto. I diritti di segreteria variano in base alla volumetria nella seguente misura:</strong></h5> da 0 a 30: 51.65 fino a 100: 103.29 fino a 300: 154.94 fino a 500: 258.23 fino a 1000: 413.17 oltre 1000: 516.46</div>",
+    "immobile_volumetria_intervento": 1.0,
+    "atti_assenso_opt": "1",
+    "titolo_esistente_tipo": "SCIA",
+    "immobile_volumetria": 1.0,
+    "procedimento_sanzionato": "",
+    "immobile_numero_piani": 1,
+    "descrizione_intervento": "costruzione di qualcosa kjfh lka jhfkasjh akhf lak k kh k ",
+    "data_inizio_lavori": "29/04/2022",
+    "data_titolo_precedente": "",
+    "tipo_titolo_precedente": "",
+    "numero_titolo_precedente": "",
+    "titolarita_opt": "1",
+    "data_precedenti_edilizi": "",
+    "qualificazione_intervento_opt": "1",
+    "regolarita_opt": "2",
+    "precedenti_edilizi_opt": "1",
+    "regolarita_immobile_testo": "dwdw",
+    "elenco_titoli_edilizi": [],
+    "titolo_esistente_protocollo": "",
+    "data_assemblea_condominiale": "",
+    "parti_comuni_opt": "1",
+    "immobile_superficie": 1.0,
+    "pw_tipopratica": "scia",
+    "tipologia_intervento_altro": "",
+    "regolarita_immobile_opt": "",
+    "data_intervento": "",
+    "pw_normativa": "scia",
+    "qualificazione_intervento_suap_opt": "",
+    "regolarita_interventi_incorso": "0",
+    "tolleranze_esecutive_opt": "1",
+    "tolleranze_esecutive_testo": "",
+    "modifiche_prospetti_opt": "NO",
+    "titolo_esistente_data": ""
+}
+
+
+{
+    "iol_sorteggio": "1",
+    "immobile_destinazione": "TURISTICA",
+    "inizio_lavori_opt": "1",
+    "precedenti_edilizi_testo": "",
+    "tipologia_intervento_opt": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+    ],
+    "immobile_volumetria_msg": "<div class=\"alert alert-info\"><h5><strong>Volumetria dell'intervento : indicare il volume dell'intervento soggetto a contributo di costruzione ,mettere 0  se non soggetto. I diritti di segreteria variano in base alla volumetria nella seguente misura:</strong></h5> da 0 a 30: 51.65 fino a 100: 103.29 fino a 300: 154.94 fino a 500: 258.23 fino a 1000: 413.17 oltre 1000: 516.46</div>",
+    "immobile_volumetria_intervento": 1.0,
+    "atti_assenso_opt": "2",
+    "titolo_esistente_tipo": "SCIA",
+    "immobile_volumetria": 1.0,
+    "procedimento_sanzionato": "",
+    "immobile_numero_piani": 1,
+    "descrizione_intervento": "costruzione di qualcosa kjfh lka jhfkasjh akhf lak k kh k ",
+    "data_inizio_lavori": "29/04/2022",
+    "data_titolo_precedente": "01/11/2022",
+    "tipo_titolo_precedente": "ertwe trtwertwertewrt",
+    "numero_titolo_precedente": "55555",
+    "titolarita_opt": "2",
+    "data_precedenti_edilizi": "",
+    "qualificazione_intervento_opt": "4",
+    "regolarita_opt": "2",
+    "precedenti_edilizi_opt": "2",
+    "regolarita_immobile_testo": "dwdw",
+    "elenco_titoli_edilizi": [
+        {
+            "data_titolo": "28/05/2000",
+            "tipo_titolo": "permesso_costruire",
+            "numero_titolo": "545"
+        },
+        {
+            "data_titolo": "15/02/1985",
+            "tipo_titolo": "comunicazione_edilizia",
+            "numero_titolo": "1234"
+        }
+    ],
+    "titolo_esistente_protocollo": "1234",
+    "data_assemblea_condominiale": "11/11/2022",
+    "parti_comuni_opt": "2",
+    "immobile_superficie": 1.0,
+    "pw_tipopratica": "scia",
+    "tipologia_intervento_altro": "et ter tewrt  ewr tewrt ewrt  ewrt ",
+    "regolarita_immobile_opt": "",
+    "data_intervento": "",
+    "pw_normativa": "scia",
+    "qualificazione_intervento_suap_opt": "",
+    "regolarita_interventi_incorso": "1",
+    "tolleranze_esecutive_opt": "1",
+    "tolleranze_esecutive_testo": "",
+    "modifiche_prospetti_opt": "SI",
+    "titolo_esistente_data": "10/11/2022"
+}
+
+
+
+
+
+
+{
+    "area_protetta_opt": "4",
+    "data_protocollo_fascia_cimiteriale": "10/05/2022",
+    "rischio_incidente_opt": "4",
+    "data_protocollo_siti_natura": "05/05/2022",
+    "data_protocollo_autorizzazione_paesaggistica": "",
+    "beni_archeologici_opt": "3",
+    "data_protocollo_rischio_incidente": "03/05/2022",
+    "numero_protocollo_siti_natura": "4444",
+    "siti_natura_opt": "3",
+    "numero_protocollo_area_protetta": "22222",
+    "vincolo_idraulico_opt": "3",
+    "numero_protocollo_autorizzazione_paesaggistica": "",
+    "vincoli_suolo_dg": [],
+    "numero_protocollo_beni_archeologici": "2222",
+    "numero_protocollo_rischio_incidente": "4444",
+    "anno_protocollo_paesaggistica": 2222,
+    "data_protocollo_vincolo_idraulico": "05/05/2022",
+    "procedimento_idrogeologico": "",
+    "numero_protocollo_paesaggistica": 1111,
+    "rischio_incidente_individuato_opt": "2",
+    "fascia_cimiteriale_opt": "4",
+    "numero_protocollo_vincolo_idrogeologico": "444",
+    "autorizzazione_paesaggistica_opt": "3",
+    "anno_protocollo_idrogeologico": "0",
+    "vincolo_idrogeologico_opt": "4",
+    "vincoli_tutela_ecologica_dg": [],
+    "procedimento_autorizzazione_paesaggistica_opt": "1",
+    "numero_protocollo_vincolo_idraulico": "444",
+    "data_protocollo_beni_archeologici": "13/05/2022",
+    "numero_protocollo_fascia_cimiteriale": "4444",
+    "procedimento_paesaggistica": "",
+    "numero_protocollo_idrogeologico": "0",
+    "data_protocollo_vincolo_idrogeologico": "03/05/2022",
+    "data_protocollo_area_protetta": "03/05/2022"
+}
+
+
+{
+    "miglioramento_energetico_certifica": [
+        "1",
+        "2"
+    ],
+    "numero_protocollo_rilascio_materiali_risulta_via": "",
+    "prevenzione_incendi_parere_numero": "12222",
+    "bonus_energetico_opt": "",
+    "scarichi_idrici_opt": "",
+    "materiali_risulta_riutilizzo": "",
+    "preavviso_dsi_opt": "1",
+    "scarichi_idrici_autorizzazione_opt": "",
+    "requisiti_art_77": [
+        "accesibilita",
+        "visibilita",
+        "adattabilita"
+    ],
+    "miglioramento_energetico_opt": "1",
+    "deposito_progetto_fonti_rinnovabili_opt": "",
+    "ente_rilascio_materiali_risulta_via": "",
+    "impianti_sicurezza_progetto_opt": "2",
+    "numero_protocollo_scarichi_idrici": "",
+    "materiali_risulta_opt": "2",
+    "copy_of_data_protocollo_interventi_strutturali_variante": "",
+    "amianto_edifici_opt": "",
+    "risparmio_energetico_pdc_opt": "",
+    "qualita_terreni_opt": "",
+    "materiali_risulta_limite_volume": "3",
+    "tipologia_impianti_sicurezza": [
+        "2",
+        "3",
+        "5"
+    ],
+    "interventi_strutturali_opt": "4",
+    "autorizzazione_dsi_opt": "1",
+    "amianto_opt": "1",
+    "igienico_sanitari_opt": "1",
+    "procedimento_dsi": "1",
+    "barriere_architettoniche_opt": "3",
+    "data_protocollo_certificazione_bonifica": "",
+    "allega_dsi_opt": "1",
+    "numero_protocollo_interventi_strutturali_variante": "555555",
+    "risparmio_energetico_opt": "2",
+    "prevenzione_incendi_progetti_opt": "3",
+    "data_protocollo_rilascio_materiali_risulta_via": "",
+    "data_convenzione_oneri": "",
+    "autorizzazione_scarichi_opt": "",
+    "data_protocollo_scarichi_idrici": "",
+    "materiali_risulta_via": "",
+    "opere_urbanizzazione_opt": "",
+    "prescrizioni_fonti_rinnovabili_opt": "2",
+    "prevenzione_incendi_opt": "2",
+    "fonti_rinnovabili_opt": "2",
+    "numero_protocollo_certificazione_bonifica": "",
+    "inquinamento_acustico_opt": "2",
+    "ente_certificazione_bonifica": "",
+    "data_protocollo_interventi_strutturali_variante": "01/11/2022",
+    "prevenzione_incendi_parere_data": "24/11/2022",
+    "sicurezza_impianti_opt": "2",
+    "copy_of_numero_protocollo_interventi_strutturali_variante": "",
+    "inquinamento_acustico_art_8": [
+        "1",
+        "2",
+        "3",
+        "4"
+    ]
+}

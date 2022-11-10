@@ -21,6 +21,7 @@ fastapi-cache2 = {extras = ["redis"], version = "^0.1.8"}
 fastapi-async-sqlalchemy = "^0.3.12"
 aioredis = "^2.0.1"
 GeoAlchemy2 = "^0.12.5"
+geojson-pydantic = "^0.4.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

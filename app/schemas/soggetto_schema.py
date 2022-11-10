@@ -51,14 +51,16 @@ class IRichiedenteUpdateAll(RichiedenteBase):
     domicilio: Optional[IDomicilioUpdate]
     giuridica: Optional[IGiuridicaUpdate]    
     
-
+class IRichiedenteUpdate(RichiedenteBase): 
+    istanza_id: Optional[int]
+    domicilio: Optional[IDomicilioUpdate]
+    giuridica: Optional[IGiuridicaUpdate]       
+    
 class IRichiedenteRead(RichiedenteBase):
     pass
 class IRichiedenteReadAll(RichiedenteBase):
     domicilio: Optional[IDomicilioRead]
     giuridica: Optional[IGiuridicaRead]
-class IRichiedenteUpdate(RichiedenteBase):
-    pass
 
 class IDelegatoCreate(DelegatoBase):
     pass
@@ -69,9 +71,9 @@ class IDelegatoUpdate(DelegatoBase):
 
 class ITecnicoCreate(TecnicoBase):
     istanza_id: Optional[int]
-    pass
 class ITecnicoRead(TecnicoBase):
     pass
 class ITecnicoUpdate(TecnicoBase):
-    pass
+    istanza_id: Optional[int]
+
     
