@@ -61,7 +61,6 @@ async def create_richiedente(
     """
     Creates a new richiedente
     """
-    import pdb;pdb.set_trace()
     richiedente.istanza_id = istanza_id
     new_richiedente = await crud.richiedente.create(obj_in=richiedente)
     return create_response(data=new_richiedente)

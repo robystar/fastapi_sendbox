@@ -1,8 +1,8 @@
 """tabelle
 
-Revision ID: 613383000a75
-Revises: 8a5922c75a93
-Create Date: 2022-11-07 11:35:22.846389
+Revision ID: 8b00e4de3827
+Revises: 4c9234762977
+Create Date: 2022-11-10 17:38:39.219165
 
 """
 from alembic import op
@@ -12,8 +12,8 @@ import sqlmodel # added
 
 
 # revision identifiers, used by Alembic.
-revision = '613383000a75'
-down_revision = '8a5922c75a93'
+revision = '8b00e4de3827'
+down_revision = '4c9234762977'
 branch_labels = None
 depends_on = None
 

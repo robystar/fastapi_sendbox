@@ -51,7 +51,6 @@ users: List[Dict[str, Union[str, IUserCreate]]] = [
 
 
 async def prove(session:AsyncSession):
-    import pdb;pdb.set_trace()
     user = await crud.user.get_by_email(email='dsfsdfs@pp.it', db_session=session)
     print (user)
     return user

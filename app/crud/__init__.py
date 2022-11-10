@@ -7,6 +7,7 @@ from .recipe_crud import recipe, ingredient
 from .istanza_crud import istanza
 from .richiedente_crud import richiedente
 from .tecnico_crud import tecnico
+from .jsondata_crud import intervento, vincoli, asseverazioni
 
 
 '''
