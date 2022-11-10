@@ -1,13 +1,8 @@
 from datetime import datetime
 from typing import List, Optional, Union
 from app.models.istanza_model import Istanza
-<<<<<<< HEAD
-from app.models.soggetto_model import Delegato, Giuridica, Richiedente, Tecnico
-from app.models.ubicazione_model import Civico, Mappale_nceu, Posizione
-=======
 from app.models.soggetto_model import Delegato, Richiedente, Tecnico, Giuridica, Domicilio
 from app.models.ubicazione_model import Civico, Mappale_nceu, Mappale_nct, Posizione
->>>>>>> casinivari
 from app.models.user_model import User
 from app.schemas.istanza_schema import IIstanzaCreate, IIstanzaUpdate, IIstanzaCreateAll, IIstanzaUpdateAll
 from app.crud.base_crud import CRUDBase
@@ -30,7 +25,6 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
         istanza_id: int,
         created_by_id: Optional[Union[UUID, str]] = None,
         db_session: Optional[AsyncSession] = None,
-<<<<<<< HEAD
     ) -> IIstanzaCreateAll:
         db_session = db_session or db.session
         import pdb;pdb.set_trace()
@@ -65,9 +59,8 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
         *,
         obj_in: Union[IIstanzaUpdateAll, Istanza],
         istanza_id: int,
+        created_by_id: Optional[Union[UUID, str]] = None,
         db_session: Optional[AsyncSession] = None,
-=======
->>>>>>> casinivari
     ) -> IIstanzaUpdateAll:
         db_session = db_session or db.session
 

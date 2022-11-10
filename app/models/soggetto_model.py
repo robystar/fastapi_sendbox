@@ -58,21 +58,19 @@ class Domicilio(DomicilioBase, table=True):
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
     richiedente_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.richiedente.id", ondelete="CASCADE"),  nullable=False, default=None))
-    richiedente: Optional["Richiedente"] = Relationship(back_populates="domicilio", sa_relationship_kwargs={"lazy":"selectin"})
 
 class Giuridica(GiuridicaBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
     richiedente_id: Optional[int] = Field(sa_column=Column(Integer, ForeignKey("edilizia.richiedente.id", ondelete="CASCADE"),  nullable=False, default=None))
-    richiedente: Optional["Richiedente"] = Relationship(back_populates="giuridica", sa_relationship_kwargs={"lazy":"selectin"})
 
 class Richiedente(RichiedenteBase, table=True):
     __table_args__ = {'schema': 'edilizia'}
     id: Optional[int] = Field(default=None, primary_key=True)
     istanza_id: Optional[int] = Field(sa_column=Column(ForeignKey("edilizia.istanza.id", ondelete="CASCADE"), nullable=False))
     istanza: Optional["Istanza"] = Relationship(sa_relationship_kwargs={"lazy":"selectin"})
-    domicilio: Optional[Domicilio] = Relationship(back_populates="richiedente",sa_relationship_kwargs={"lazy":"selectin","uselist":False})
-    giuridica: Optional[Giuridica] = Relationship(back_populates="richiedente",sa_relationship_kwargs={"lazy":"selectin","uselist":False})
+    domicilio: Optional[Domicilio] = Relationship(sa_relationship_kwargs={"lazy":"selectin","uselist":False})
+    giuridica: Optional[Giuridica] = Relationship(sa_relationship_kwargs={"lazy":"selectin","uselist":False})
     
 class Delegato(DelegatoBase, table=True):  
     __table_args__ = {'schema': 'edilizia'}

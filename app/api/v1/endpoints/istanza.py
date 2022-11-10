@@ -101,7 +101,7 @@ async def update_istanza_with_id(
     """
     Aggiorna istanza completa doc id con richiedenti (dump plomino doc)
     """
-    istanza = await crud.istanza.update_istanza_with_richiedenti(
+    istanza = await crud.istanza.update_istanza_with_id(
         obj_in=istanza_in, created_by_id=current_user.id, istanza_id=istanza_id
     )
     return create_response(data=istanza)
