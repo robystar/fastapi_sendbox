@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List, Optional, Union
 from app.models.istanza_model import Istanza
-from app.models.soggetto_model import Delegato, Richiedente, Tecnico
+from app.models.soggetto_model import Delegato, Giuridica, Richiedente, Tecnico
 from app.models.ubicazione_model import Civico, Mappale_nceu, Posizione
 from app.models.user_model import User
 from app.schemas.istanza_schema import IIstanzaCreate, IIstanzaUpdate, IIstanzaCreateAll, IIstanzaUpdateAll
@@ -39,7 +39,18 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
             db_istanza.updated_at = datetime.utcnow()
         
         db_istanza.id = istanza_id
-        db_istanza.richiedenti = [Richiedente.from_orm(richiedente) for richiedente in obj_in.richiedenti]
+        
+        for richiedente in obj_in.richiedenti:
+            db_richiedente = Richiedente.from_orm(richiedente)
+            db_session.add(db_richiedente)
+            db_richiedente.giuridica = Giuridica.from_orm(richiedente.giuridica)
+            db_istanza.richiedenti.append(db_richiedente)
+        
+        
+        
+                
+
+        
         db_istanza.delegato = Delegato.from_orm(obj_in.delegato)
         db_session.add(db_istanza)
         await db_session.commit()
