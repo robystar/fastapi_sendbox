@@ -547,3 +547,107 @@
         "4"
     ]
 }
+
+
+{
+    "firma_digitale_opt": "1",
+    "tipo": "scia",
+    "richiedenti": [
+        {
+            "prov": "GE",
+            "prov_nato": "TO",
+            "pec": "roberto.starnini@pec.it",
+            "cittadinanza": "italiana",
+            "qualita": "Proprietario",
+            "civico": "4",
+            "email": "roberto.starnini@gmail.com",
+            "comune": "Settimo Torinese",
+            "cod_cat_nato": "L219",
+            "cf": "STRRRT71H05L219N",
+            "piva": "01533090997",
+            "app": "Sig.",
+            "cap": "16126",
+            "principale": true,
+            "sesso": "M",
+            "indirizzo": "VIA GRAMSCI 27/9",
+            "data_nato": "1971-06-05",
+            "nome": "ROBERTO",
+            "search": "STARNINI ROBERTO",
+            "comune_nato": "Torino",
+            "giuridica": {
+                "prov": "GE",
+                "qualita": "Amministratore",
+                "civico": "27/9",
+                "search": "GIS WEB",
+                "email": "assistenza@gisweb.it",
+                "cap": "16100",
+                "telefono": "2222222",
+                "indirizzo": "VIA GRAMSCI",
+                "comune": "Genova",
+                "localita": "GENOVA",
+                "cf": "01533090997",
+                "denominazione": "GIS WEB",
+                "piva": "01533090997"
+            },
+            "cognome": "STARNINI",
+            "domicilio": {
+                "prov": "CE",
+                "civico": "33",
+                "comune": "Recale",
+                "indirizzo": "Via di la",
+                "cap": "81020"
+            }
+        },
+        {
+            "prov": "GE",
+            "prov_nato": "MI",
+            "civico": "27/9",
+            "app": "Ing.",
+            "email": "assistenza@gisweb.it",
+            "cognome": "HOOD",
+            "sesso": "M",
+            "qualita": "Locatario",
+            "cf": "HDORBN82S10H240J",
+            "search": null,
+            "pec": "amministrazione@pec.gisweb.it",
+            "cap": "15054",
+            "principale": false,
+            "telefono": "2222222",
+            "indirizzo": "eqweqweqewq",
+            "data_nato": "1982-11-10",
+            "comune": "Resiutta",
+            "cod_cat_nato": "H240",
+            "comune_nato": "Rescaldina",
+            "nome": "ROBIN"
+        }
+    ],
+    "sportello": "sue",
+    "oggetto": "costruzione di qualcosa kjfh lka jhfkasjh akhf lak k kh k ",
+    "id": 43352,
+    "delegato": {
+        "provincia_nato": "TO",
+        "cognome": "ZANONE",
+        "pec": "renato.zanone@archiworldpec.it",
+        "cellulare": "+393356102040",
+        "email": "renatozanone@gmail.com",
+        "titolo": "Soggetto delegato",
+        "telefono": "0182636236",
+        "comune_nato": "Torino",
+        "data_nato": "1964-04-19",
+        "civico": "14",
+        "cap": "17051",
+        "search": "ZANONE RENATO",
+        "provincia": "SV",
+        "indirizzo": "Via Aurora ",
+        "app": "Arch.",
+        "comune": "Andora",
+        "nome": "RENATO",
+        "opt": true,
+        "cf": "ZNNRNT64D19L219Q",
+        "sesso": "M"
+    }
+}
+
+
+
+

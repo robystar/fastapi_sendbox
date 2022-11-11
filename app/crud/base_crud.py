@@ -123,7 +123,6 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         db_session = db_session or db.session
         obj_data = jsonable_encoder(obj_current)
 
-        import pdb;pdb.set_trace()
         if isinstance(obj_new, dict):
             update_data = obj_new
         else:

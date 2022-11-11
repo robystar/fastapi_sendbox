@@ -88,7 +88,7 @@ async def get_istanza_by_id(
     return create_response(data=istanza)
 
 
-@router.put("/{istanza_id}", response_model=IPostResponseBase[IIstanzaUpdateAll])
+@router.put("/{istanza_id}", response_model=IPostResponseBase[IIstanzaRead])
 async def update_istanza_with_id(
     istanza_id: int,
     istanza_in: IIstanzaCreateAll = Body(

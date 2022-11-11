@@ -4,7 +4,7 @@ from app.models.istanza_model import Istanza
 from app.models.soggetto_model import Delegato, Richiedente, Tecnico, Giuridica, Domicilio
 from app.models.ubicazione_model import Civico, Mappale_nceu, Mappale_nct, Posizione
 from app.models.user_model import User
-from app.schemas.istanza_schema import IIstanzaCreate, IIstanzaUpdate, IIstanzaCreateAll, IIstanzaUpdateAll
+from app.schemas.istanza_schema import IIstanzaCreate, IIstanzaRead, IIstanzaUpdate, IIstanzaCreateAll, IIstanzaUpdateAll
 from app.crud.base_crud import CRUDBase
 from fastapi_async_sqlalchemy import db
 from sqlmodel import select, delete
@@ -61,13 +61,16 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
         istanza_id: int,
         created_by_id: Optional[Union[UUID, str]] = None,
         db_session: Optional[AsyncSession] = None,
-    ) -> IIstanzaUpdateAll:
+    ) -> IIstanzaRead:
         db_session = db_session or db.session
 
         db_istanza = await super().get(id=istanza_id)
         
+        #import pdb;pdb.set_trace()
+        
         if not db_istanza:
             db_istanza = Istanza.from_orm(obj_in)  # type: ignore
+            db_istanza.id = istanza_id
             if created_by_id:
                 db_istanza.created_by_id = created_by_id
                 db_istanza.created_at = datetime.utcnow()
@@ -157,11 +160,13 @@ class CRUDIstanza(CRUDBase[Istanza, IIstanzaCreate, IIstanzaUpdate]):
         db_istanza.posizione = Posizione.from_orm(ubicazione.posizione)
         
         for civico_in in ubicazione.civici:
-            civico_in.geom_p = 'SRID=4326;POINT(%s)' %civico_in.geom_p
+            if civico_in.geom_p:
+                civico_in.geom_p = 'SRID=4326;POINT(%s)' %civico_in.geom_p
             db_istanza.civici.append(Civico.from_orm(civico_in))
         
         for mappale_in in ubicazione.nct:
-            mappale_in.geom_plg = 'SRID=4326;%s' %mappale_in.geom_plg
+            if mappale_in.geom_plg:
+                mappale_in.geom_plg = 'SRID=4326;%s' %mappale_in.geom_plg
             db_istanza.nct.append(Mappale_nct.from_orm(mappale_in))
         
         db_istanza.nceu=[Mappale_nceu.from_orm(obj) for obj in ubicazione.nceu]
