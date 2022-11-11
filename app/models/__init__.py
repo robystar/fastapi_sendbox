@@ -6,3 +6,4 @@ from .pratica_model import Pratica
 from .soggetto_model import Richiedente, Giuridica, Tecnico
 from .istanza_model import Istanza
 from .ubicazione_model import Civico
+from .pagopa_model import PagopaImporti, PagopaPagamenti

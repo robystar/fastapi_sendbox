@@ -26,7 +26,13 @@ class LinkIstanzaUser(SQLModel, table=True):
     id: int = Field(primary_key=True, index=True, nullable=False)
     istanza_id: Optional[int] = Field(default=None, nullable=False, foreign_key="edilizia.istanza.id", primary_key=True)
     user_id: Optional[UUID] = Field(default=None, nullable=False, foreign_key="admin.user.id", primary_key=True) 
-
+    
+class LinkImportiPagamenti(SQLModel, table=True):
+    __table_args__ = {'schema': 'edilizia'}
+    id: int = Field(primary_key=True, index=True, nullable=False)
+    importo_id: Optional[int] = Field(default=None, nullable=False, foreign_key="edilizia.pagopa_importi.id", primary_key=True)
+    pagamento_id: Optional[int] = Field(default=None, nullable=False, foreign_key="edilizia.pagopa_pagamenti.id", primary_key=True)   
+    
 class LinkRecipeIngredient(SQLModel, table=True):
     __table_args__ = {'schema': 'ricette'}
     id: int = Field(primary_key=True, index=True, nullable=False)

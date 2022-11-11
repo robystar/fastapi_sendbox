@@ -9,14 +9,14 @@ class Via(SQLModel, table=True):
  
 class CivicoBase(SQLModel): 
     via_id : int
-    civico: str
+    civico: Optional[str]
     interno: Optional[str]
     note: Optional[str]
 
 class MappaleBase(SQLModel):
     sezione: Optional[str]
-    foglio: str
-    mappale: str
+    foglio: Optional[str]
+    mappale: Optional[str]
     note: Optional[str]
     
 class UiuBase(MappaleBase, CivicoBase):
